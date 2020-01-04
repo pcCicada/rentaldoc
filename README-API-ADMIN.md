@@ -14,6 +14,7 @@
     param       | type   |  notNull  | desc             
     rows        | int    |  notNull  | brandList size   
     brandList   | list   |  notNull  | 
+    --id        | int    |  notNull  | brand id
     --brand     | String |  notNull  | brand of car
     --model     | String |  notNull  | model of car
 ###### param ex:
@@ -66,3 +67,47 @@
 ###### remark
     There is a simple mock repository in the backend-system, whick is week to check duplicate data. 
     Please check before submit.
+    
+
+### 2. stock service
+
+#### 2.1 query
+    
+###### path:    /rental/stock/query
+###### method:  post
+###### param:
+    param  | type   |  notNull  | desc          | example
+    brand  | String |  nullable | brand of car  |"Toyota"
+    model  | String |  nullable | model of car  |"Camry"
+    color  | String |  nullable | color of car  |"black"
+###### result(data):
+    param           | type   |  notNull  | desc             
+    rows            | int    |  notNull  | brandList size   
+    stockList       | list   |  notNull  | 
+    --brand         | String |  notNull  | brand of car
+    --model         | String |  notNull  | model of car
+    --color         | String |  notNull  | color of car
+    --plateNumber   | String |  notNull  | plateNumber of car
+###### param ex:
+    {"brand":"Toyota", "color": "white"}
+###### resule ex:
+    {
+        "success": true,
+        "resCode": "000000",
+        "resMsg": "成功",
+        "data": {
+            "rows": 1,
+            "stockList": [
+                {
+                    "brand": "Toyota",
+                    "model": "Camry",
+                    "color": "white",
+                    "plateNumber": null
+                }
+            ]
+        },
+        "map": null,
+        "errorMsg": null
+    }
+ 
+
