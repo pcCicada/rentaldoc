@@ -136,11 +136,11 @@
     brandId     | String |  notNull     | brandId of car    | "1"
     stockId     | String |  notNull     | stockId of car    | "1"
 ###### result(data):
-    param               | type    |  notNull        | desc              | example
-    success             | boolean |  notNull        | step finish       | true
-    finish              | boolean |  notNull        | flow finish       | false
-    nextStep            | String  |  nullable       | next step         | "SUBMIT_TIME"
-    orderPriceEntity    | Object  |  nullable       | rental price      | 
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "SUBMIT_TIME"
+    orderRentPriceEntity    | Object  |  nullable       | rental price      | 
     msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
 ###### result - all value for nextStep :
     value       |   desc
@@ -157,7 +157,7 @@
         "data": {
             "nextStep": "SUBMIT_TIME",
             "msg": null,
-            "orderPriceEntity": null,
+            "orderRentPriceEntity": null,
             "success": true,
             "finish": false
         },
@@ -177,12 +177,12 @@
     orderDiscountInfo   | Object |  nullable    | for discount      | [pending]
     days                | int    |  notNull     | rental days       | 2
 ###### result(data):
-    param               | type    |  notNull        | desc              | example
-    success             | boolean |  notNull        | step finish       | true
-    finish              | boolean |  notNull        | flow finish       | false
-    nextStep            | String  |  nullable       | next step         | "SUBMIT_TIME"
-    orderPriceEntity    | Object  |  nullable       | rental price      | 
-    msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "SUBMIT_TIME"
+    orderRentPriceEntity    | Object  |  nullable       | rental price      | 
+    msg                     | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
 ###### param ex:
     {"userId":"100", "applyNo":"234567", "rentStartTime":"20200105 12:00", "rentEndTime":"20200107 12:00", "days":2}
 ###### resule ex:
@@ -193,7 +193,7 @@
         "data": {
             "nextStep": "PAY_PRICE",
             "msg": null,
-            "orderPriceEntity": {
+            "orderRentPriceEntity": {
                 "rentPrice": 60000,
                 "discountPrice": 0,
                 "guaranteeCharge": 100000,
@@ -214,12 +214,12 @@
     userId          | String |  notNull     | user id           | "100", Mike-100, Bos-001
     applyNo         | String |  notNull     | created by front  | "234567"
 ###### result(data):
-    param               | type    |  notNull        | desc              | example
-    success             | boolean |  notNull        | step finish       | true
-    finish              | boolean |  notNull        | flow finish       | false
-    nextStep            | String  |  nullable       | next step         | "SUBMIT_TIME"
-    orderPriceEntity    | Object  |  nullable       | rental price      | 
-    msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "SUBMIT_TIME"
+    orderRentPriceEntity    | Object  |  nullable       | rental price      | 
+    msg                     | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
 ###### param ex:
     {"userId":"100", "applyNo":"234567"}
 ###### resule ex:
@@ -230,7 +230,7 @@
         "data": {
             "nextStep": "TAKE_CAR",
             "msg": null,
-            "orderPriceEntity": null,
+            "orderRentPriceEntity": null,
             "success": true,
             "finish": false
         },
@@ -246,12 +246,12 @@
     userId          | String |  notNull     | user id           | "100", Mike-100, Bos-001
     applyNo         | String |  notNull     | created by front  | "234567"
 ###### result(data):
-    param               | type    |  notNull        | desc              | example
-    success             | boolean |  notNull        | step finish       | true
-    finish              | boolean |  notNull        | flow finish       | false
-    nextStep            | String  |  nullable       | next step         | "SUBMIT_TIME"
-    orderPriceEntity    | Object  |  nullable       | rental price      | 
-    msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "SUBMIT_TIME"
+    orderRentPriceEntity    | Object  |  nullable       | rental price      | 
+    msg                     | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
 ###### param ex:
     {"userId":"100", "applyNo":"234567"}
 ###### resule ex:
@@ -262,7 +262,7 @@
         "data": {
             "nextStep": null,
             "msg": "恭喜用户喜提豪车，预祝您旅途愉快",
-            "orderPriceEntity": null,
+            "orderRentPriceEntity": null,
             "success": true,
             "finish": true
         },
@@ -279,5 +279,143 @@
 ###### resule ex:
 
 
-
 ### 5. orders repay
+
+#### 5.1 apply
+###### path:    /order/repay/apply
+###### method:  post
+###### param:
+    param       | type   |  notNull     | desc              | example
+    userId      | String |  notNull     | user id           | "100", Mike-100, Bos-001
+    applyNo     | String |  notNull     | created by front  | "234567"
+    stockId     | String |  notNull     | stockId of car    | "1"
+###### result(data):
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "CHECK_CAR"
+    orderRepayPriceEntity   | Object  |  nullable       | repay price       | 
+    msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
+###### result - all value for nextStep :
+    value           |   desc
+    CHECK_CAR       |   
+    SETTLEMENT      |   
+    CONFIRM_REPAY   |   
+###### param ex:
+    {"userId":"100", "applyNo":"234567", "stockId":1}
+###### resule ex:
+    {
+        "success": true,
+        "resCode": "000000",
+        "resMsg": "成功",
+        "data": {
+            "nextStep": "CHECK_CAR",
+            "msg": null,
+            "orderRepayPriceEntity": null,
+            "success": true,
+            "finish": false
+        },
+        "map": null,
+        "errorMsg": null
+    }
+
+#### 5.2 check car  
+###### path:    /order/repay/check
+###### method:  post
+###### param:
+    param               | type   |  notNull     | desc              | example
+    userId              | String |  notNull     | user id           | "100", Mike-100, Bos-001
+    applyNo             | String |  notNull     | created by front  | "234567"
+    isBroken            | boolean|  notNull     | is broken         | true/false
+    breakageCharge      | long   |  nullable    | fine cherge if  broken     | >=0
+###### result(data):
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "CHECK_CAR"
+    orderRepayPriceEntity   | Object  |  nullable       | repay price       | 
+    msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
+###### param ex:
+    {"userId":"100", "applyNo":"234567", "isBroken":true, "breakageCharge":200000}
+###### resule ex:
+    {
+        "success": true,
+        "resCode": "000000",
+        "resMsg": "成功",
+        "data": {
+            "nextStep": "SETTLEMENT",
+            "msg": null,
+            "orderRepayPriceEntity": {
+                "lateCharge": 0,
+                "breakageCharge": 200000
+            },
+            "success": true,
+            "finish": false
+        },
+        "map": null,
+        "errorMsg": null
+    }
+
+#### 4.3 settlement
+###### path:    /order/repay/settlement
+###### method:  post
+###### param:
+    param           | type   |  notNull     | desc              | example
+    userId          | String |  notNull     | user id           | "100", Mike-100, Bos-001
+    applyNo         | String |  notNull     | created by front  | "234567"
+###### result(data):
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "CHECK_CAR"
+    orderRepayPriceEntity   | Object  |  nullable       | repay price       | 
+    msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
+###### param ex:
+    {"userId":"100", "applyNo":"234567"}
+###### resule ex:
+    {
+        "success": true,
+        "resCode": "000000",
+        "resMsg": "成功",
+        "data": {
+            "nextStep": "CONFIRM_REPAY",
+            "msg": null,
+            "orderRentPriceEntity": null,
+            "success": true,
+            "finish": false
+        },
+        "map": null,
+        "errorMsg": null
+    }
+
+#### 4.4 take car
+###### path:    /order/repay/take
+###### method:  post
+###### param:
+    param           | type   |  notNull     | desc              | example
+    userId          | String |  notNull     | user id           | "100", Mike-100, Bos-001
+    applyNo         | String |  notNull     | created by front  | "234567"
+###### result(data):
+    param                   | type    |  notNull        | desc              | example
+    success                 | boolean |  notNull        | step finish       | true
+    finish                  | boolean |  notNull        | flow finish       | false
+    nextStep                | String  |  nullable       | next step         | "CHECK_CAR"
+    orderRepayPriceEntity   | Object  |  nullable       | repay price       | 
+    msg                 | String  |  nullable       | show to user if not null      | "Warn: car is broken down"
+###### param ex:
+    {"userId":"100", "applyNo":"234567"}
+###### resule ex:
+    {
+        "success": true,
+        "resCode": "000000",
+        "resMsg": "成功",
+        "data": {
+            "nextStep": null,
+            "msg": null,
+            "orderRentPriceEntity": null,
+            "success": true,
+            "finish": true
+        },
+        "map": null,
+        "errorMsg": null
+    }
