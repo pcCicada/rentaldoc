@@ -356,7 +356,7 @@
         "errorMsg": null
     }
 
-#### 4.3 settlement
+#### 5.3 settlement
 ###### path:    /order/repay/settlement
 ###### method:  post
 ###### param:
@@ -388,8 +388,8 @@
         "errorMsg": null
     }
 
-#### 4.4 take car
-###### path:    /order/repay/take
+#### 5.4 confirm repay
+###### path:    /order/repay/confirm
 ###### method:  post
 ###### param:
     param           | type   |  notNull     | desc              | example
