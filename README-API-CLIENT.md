@@ -127,7 +127,7 @@
 ### 4. orders rent
 
 #### 4.1 apply
-###### path:    /order/rent/apply
+###### path:    /rental/order/rent/apply
 ###### method:  post
 ###### param:
     param       | type   |  notNull     | desc              | example
@@ -166,7 +166,7 @@
     }
 
 #### 4.2 submit time
-###### path:    /order/rent/time
+###### path:    /rental/order/rent/time
 ###### method:  post
 ###### param:
     param               | type   |  notNull     | desc              | example
@@ -207,7 +207,7 @@
     }
 
 #### 4.3 pay
-###### path:    /order/rent/pay
+###### path:    /rental/order/rent/pay
 ###### method:  post
 ###### param:
     param           | type   |  notNull     | desc              | example
@@ -239,7 +239,7 @@
     }
 
 #### 4.4 take car
-###### path:    /order/rent/take
+###### path:    /rental/order/rent/take
 ###### method:  post
 ###### param:
     param           | type   |  notNull     | desc              | example
@@ -271,7 +271,7 @@
     }
 
 #### 4.5 cancel apply
-###### path:    /order/rent/cancel
+###### path:    /rental/order/rent/cancel
 ###### method:  post
 ###### param:
 ###### result(data):
@@ -282,7 +282,7 @@
 ### 5. orders repay
 
 #### 5.1 apply
-###### path:    /order/repay/apply
+###### path:    /rental/order/repay/apply
 ###### method:  post
 ###### param:
     param       | type   |  notNull     | desc              | example
@@ -320,7 +320,7 @@
     }
 
 #### 5.2 check car  
-###### path:    /order/repay/check
+###### path:    /rental/order/repay/check
 ###### method:  post
 ###### param:
     param               | type   |  notNull     | desc              | example
@@ -357,7 +357,7 @@
     }
 
 #### 5.3 settlement
-###### path:    /order/repay/settlement
+###### path:    /rental/order/repay/settlement
 ###### method:  post
 ###### param:
     param           | type   |  notNull     | desc              | example
@@ -389,7 +389,7 @@
     }
 
 #### 5.4 confirm repay
-###### path:    /order/repay/confirm
+###### path:    /rental/order/repay/confirm
 ###### method:  post
 ###### param:
     param           | type   |  notNull     | desc              | example
